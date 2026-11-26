@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honey Bunnie | Sweet Scrunchies</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#e9aebe;--dark:#c87591;--light:#fff3f6;--cream:#fffaf5;--brown:#59434a;--muted:#927c83}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--brown);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,90%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#fffaf5f2;border-bottom:1px solid #f2dce2}
+.navbar{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-family:'Playfair Display',serif;font-size:27px;color:var(--dark);font-weight:bold}
+nav{display:flex;gap:20px;font-size:14px;font-weight:600}
+nav a:hover{color:var(--dark)}
+.hero{padding:90px 0;text-align:center;background:linear-gradient(135deg,#fff2f5,#f8e2e8)}
+.eyebrow{color:var(--dark);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,68px);line-height:1.15;margin-bottom:18px}
+.hero h1 span{color:var(--dark)}
+.hero p{max-width:550px;margin:0 auto 28px;color:var(--muted)}
+.button{display:inline-block;border:0;border-radius:30px;padding:13px 25px;background:var(--dark);color:white;font-weight:700;cursor:pointer;transition:.2s}
+.button:hover{background:#b96280;transform:translateY(-2px)}
+section{padding:75px 0}
+.heading{text-align:center;margin-bottom:38px}
+.heading h2{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,42px);margin-bottom:8px}
+.heading p{color:var(--muted);font-size:14px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;max-width:850px;margin:auto}
+.product-card{background:white;border:1px solid #f2e3e6;border-radius:20px;overflow:hidden;box-shadow:0 8px 28px #824f5e0f}
+.product-visual{height:290px;position:relative;background:#f9e8ed;overflow:hidden}
+.product-visual img{width:100%;height:100%;object-fit:cover;display:block}
+.stamp{position:absolute;top:15px;left:15px;background:#ffffffed;color:var(--dark);border-radius:30px;padding:7px 12px;font-size:11px;font-weight:700}
+.product-info{padding:23px}
+.product-type{color:var(--dark);font-size:10px;letter-spacing:2px;font-weight:700;margin-bottom:7px}
+.product-info h3{font-family:'Playfair Display',serif;font-size:25px;margin-bottom:7px}
+.product-info p{color:var(--muted);font-size:14px;margin-bottom:15px}
+.price{font-size:19px;font-weight:700;color:var(--dark)}
+.about{background:var(--light);text-align:center}
+.about-content{max-width:680px;margin:auto}
+.about-content p{color:var(--muted);margin-top:15px}
+.order-section{background:#fffaf7}
+.order-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:start;max-width:900px;margin:auto}
+.order-form,.payment-card{background:white;border:1px solid #f0e1e5;border-radius:20px;padding:28px;box-shadow:0 8px 28px #824f5e0d}
+.order-form h3,.payment-card h3{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:20px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
+.form-group input,.form-group select,.form-group textarea{width:100%;border:1px solid #ead8de;border-radius:11px;padding:12px 13px;background:#fffdfd;color:var(--brown);font:inherit;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--dark);box-shadow:0 0 0 3px #f9e9ee}
+.form-group textarea{min-height:85px;resize:vertical}
+.total-box{background:var(--light);border-radius:12px;padding:15px;margin:18px 0;display:flex;justify-content:space-between;gap:10px;font-weight:700}
+.total-price{color:var(--dark)}
+.order-form .button{width:100%;font:inherit}
+.payment-card{background:var(--light)}
+.payment-card p{font-size:14px;color:var(--muted);margin-bottom:12px}
+.bank-box{background:white;border:1px dashed #dda6b7;padding:18px;border-radius:14px;margin:18px 0}
+.bank-name{font-weight:700;color:var(--dark);font-size:17px}
+.account-number{font-size:22px;font-weight:700;letter-spacing:1px;margin:8px 0;overflow-wrap:anywhere}
+.account-owner{font-size:13px;color:var(--muted)}
+.payment-note{font-size:12px!important;line-height:1.6}
+.contact{text-align:center;background:#f8e7ec}
+.contact p{color:var(--muted);margin:10px 0 22px}
+footer{padding:24px;text-align:center;background:#fffaf5;color:var(--muted);font-size:12px}
+@media(max-width:700px){
+.navbar{flex-direction:column;padding:14px 0}
+nav{gap:14px;flex-wrap:wrap;justify-content:center;font-size:12px}
+.hero{padding:65px 0}
+.products{grid-template-columns:1fr;max-width:430px}
+.order-layout{grid-template-columns:1fr}
+section{padding:58px 0}
+.product-visual{height:280px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container navbar">
+    <a class="logo" href="#">Honey Bunnie ♡</a>
+    <nav>
+      <a href="#home">Home</a><a href="#products">Products</a><a href="#about">About</a><a href="#order">Order</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="eyebrow">Sweet little things for you</div>
+    <h1>Make Every Day<br><span>A Little Sweeter</span> ♡</h1>
+    <p>Temukan scrunchie cantik dan nyaman untuk melengkapi gaya manismu setiap hari.</p>
+    <a href="#products" class="button">Explore Our Products</a>
+  </div>
+</section>
+<section id="products">
+  <div class="container">
+    <div class="heading">
+      <div class="eyebrow">Our Collection</div>
+      <h2>Made With Love ♡</h2>
+      <p>Pilih scrunchie favoritmu dan percantik harimu.</p>
+    </div>
+    <div class="products">
+      <article class="product-card">
+        <div class="product-visual">
+          <span class="stamp">Everyday favorite</span>
+          <img src="Basic%20.jpg" alt="Basic Scrunchie">
+        </div>
+        <div class="product-info">
+          <div class="product-type">THE EVERYDAY FAVORITE</div>
+          <h3>Basic Scrunchie</h3>
+          <p>Simple, manis, dan nyaman digunakan untuk menemani aktivitas sehari-hari.</p>
+          <div class="price">Rp10.000</div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="product-visual">
+          <span class="stamp">A little extra touch</span>
+          <img src="Premium.jpg" alt="Premium Scrunchie">
+        </div>
+        <div class="product-info">
+          <div class="product-type">A LITTLE EXTRA LOVE</div>
+          <h3>Premium Scrunchie</h3>
+          <p>Sentuhan lebih spesial untuk tampilan yang semakin cantik dan elegan.</p>
+          <div class="price">Rp15.000</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="about" id="about">
+  <div class="container about-content">
+    <div class="eyebrow">A little story</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:38px">About Honey Bunnie</h2>
+    <p>Honey Bunnie hadir untuk memberikan sentuhan manis di setiap harimu. Kami percaya bahwa hal kecil seperti scrunchie cantik bisa membuatmu merasa lebih percaya diri dan istimewa.</p>
+    <p>Made with love, just for you. ♡</p>
+  </div>
+</section>
+<section class="order-section" id="order">
+  <div class="container">
+    <div class="heading">
+      <div class="eyebrow">Let's get yours</div>
+      <h2>Place Your Order ♡</h2>
+      <p>Isi detail pesananmu, lalu kirim langsung melalui WhatsApp.</p>
+    </div>
+    <div class="order-layout">
+      <form class="order-form" id="orderForm">
+        <h3>Order Details</h3>
+        <div class="form-group">
+          <label for="customerName">Nama lengkap</label>
+          <input id="customerName" type="text" placeholder="Masukkan nama kamu" required>
+        </div>
+        <div class="form-group">
+          <label for="customerPhone">Nomor WhatsApp</label>
+          <input id="customerPhone" type="tel" placeholder="Contoh: 081234567890" required>
+        </div>
+        <div class="form-group">
+          <label for="product">Pilih produk</label>
+          <select id="product" required>
+            <option value="Basic Scrunchie">Basic Scrunchie - Rp10.000</option>
+            <option value="Premium Scrunchie">Premium Scrunchie - Rp15.000</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Jumlah</label>
+          <input id="quantity" type="number" min="1" max="100" value="1" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Alamat pengiriman</label>
+          <textarea id="address" placeholder="Masukkan alamat lengkap pengiriman" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="notes">Catatan tambahan (opsional)</label>
+          <textarea id="notes" placeholder="Warna pilihan atau catatan lainnya"></textarea>
+        </div>
+        <div class="total-box"><span>Total harga produk</span><span class="total-price" id="totalPrice">Rp10.000</span></div>
+        <button type="submit" class="button">Pesan Sekarang via WhatsApp ♡</button>
+      </form>
+      <aside class="payment-card">
+        <h3>Payment Details</h3>
+        <p>Setelah pesanan dikonfirmasi melalui WhatsApp, pembayaran dapat dilakukan melalui rekening berikut.</p>
+        <div class="bank-box">
+          <div class="bank-name">BCA</div>
+          <div class="account-number">4760684266</div>
+          <div class="account-owner">a.n. Fitri Sofianti</div>
+        </div>
+        <p class="payment-note">Silakan lakukan pembayaran setelah detail pesanan dan ongkos kirim dikonfirmasi oleh admin. Simpan bukti transfer untuk dikirim melalui WhatsApp.</p>
+        <p class="payment-note">Catatan: nomor rekening ditampilkan secara publik di website.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+<section class="contact">
+  <div class="container">
+    <div class="eyebrow">We'd love to hear from you</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:36px">Let's Be Friends ♡</h2>
+    <p>Ingin bertanya atau melihat koleksi kami? Hubungi Honey Bunnie melalui WhatsApp.</p>
+    <a class="button" href="https://wa.me/6285770503581" target="_blank" rel="noopener">Chat With Us</a>
+  </div>
+</section>
+</main>
+<footer>© 2026 Honey Bunnie. Made with love ♡</footer>
+<script>
+const productSelect=document.getElementById("product");
+const quantityInput=document.getElementById("quantity");
+const totalPrice=document.getElementById("totalPrice");
+function rupiah(number){
+  return new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(number);
+}
+function calculateTotal(){
+  const price=productSelect.value==="Premium Scrunchie"?15000:10000;
+  const quantity=Math.max(1,Math.min(100,Number(quantityInput.value)||1));
+  totalPrice.textContent=rupiah(price*quantity);
+}
+productSelect.addEventListener("change",calculateTotal);
+quantityInput.addEventListener("input",calculateTotal);
+document.getElementById("orderForm").addEventListener("submit",function(event){
+  event.preventDefault();
+  const name=document.getElementById("customerName").value.trim();
+  const phone=document.getElementById("customerPhone").value.trim();
+  const product=productSelect.value;
+  const quantity=Math.max(1,Math.min(100,Number(quantityInput.value)||1));
+  const address=document.getElementById("address").value.trim();
+  const notes=document.getElementById("notes").value.trim();
+  const price=product==="Premium Scrunchie"?15000:10000;
+  const total=price*quantity;
+  const message=`Halo Honey Bunnie! ♡ Saya ingin memesan:\n\nNama: ${name}\nNomor WhatsApp: ${phone}\nProduk: ${product}\nJumlah: ${quantity}\nHarga satuan: ${rupiah(price)}\nTotal produk: ${rupiah(total)}\n\nAlamat pengiriman:\n${address}\n\nCatatan:\n${notes||"-"}\n\nMohon konfirmasi pesanan dan ongkos kirimnya. Terima kasih! ♡`;
+  const whatsappURL="https://wa.me/6285770503581?text="+encodeURIComponent(message);
+  window.open(whatsappURL,"_blank","noopener");
+});
+calculateTotal();
+</script>
+</body>
+</html>
